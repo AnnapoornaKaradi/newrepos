@@ -1,0 +1,2 @@
+# values-komodor.yaml — keep secrets out of here
+clusterName: "${clusterName}"
