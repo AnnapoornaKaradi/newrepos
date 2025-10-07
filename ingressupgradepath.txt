@@ -1,0 +1,23 @@
+Based on the analysis, here are the key considerations for upgrading from 3.4.3 to 3.7.2:
+
+Current Status:
+The controller is currently stable and healthy
+It's running with NGINX Plus enabled
+It has several custom features enabled (prometheus metrics, custom resources, etc.)
+Potential Risk Areas:
+CRD Updates: The upgrade will require manual CRD updates as noted in the Helm release notes. This is critical and must be done carefully
+Custom Resources: Since custom resources are enabled (-enable-custom-resources=true), any existing VirtualServer/TransportServer resources need to be validated against new CRD versions
+Zero-downtime concerns: The deployment uses pod anti-affinity rules and has rolling update strategy, but with only 1 replica, there will be a brief downtime during pod replacement
+Specific Breaking Changes to Watch For:
+Configuration changes in the new versions might affect your current command-line arguments
+Any customizations in ConfigMaps would need review
+The upgrade spans multiple versions (3.4.3 -> 3.5.x -> 3.6.x -> 3.7.2), so you should review all intermediate release notes
+Recommendations:
+
+Create a backup of all Ingress-related custom resources
+Plan for a maintenance window due to single replica
+Test the upgrade in a non-production environment first
+Have a rollback plan ready, including the old CRD versions
+Consider increasing replicas temporarily during the upgrade if possible
+Would you like me to help you plan any specific aspect of this upgrade in more detail?
+
