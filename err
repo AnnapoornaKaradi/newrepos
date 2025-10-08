@@ -1,0 +1,2 @@
+adm-annapoorneshwari.karadi@fnf.com> kubectl get crd | grep -i externaldns
+dnsendpoints.externaldns.nginx.org                          2024-04-25T15:16:17Z
