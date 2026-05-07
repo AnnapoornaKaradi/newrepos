@@ -1,0 +1,5 @@
+Get-MgAuditLogDirectoryAudit `
+  -Filter "activityDisplayName eq 'Reset user password'" |
+  ForEach-Object {
+    $_.TargetResources | Select DisplayName, UserPrincipalName
+  }
